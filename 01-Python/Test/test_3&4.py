@@ -145,7 +145,7 @@ print(f.read())
 #print(f.readline())
 #print(f.readline())
 #print(f.readline())
-f.close()'''
+f.close()
 
 #OS an Shutil Module
 import os
@@ -168,13 +168,13 @@ os.write(fd.fileno(),"#include <iostream>\n\
 int main(){\n \
 std::cout<<\"Hello, World \" << std::endl;\nreturn 0;}".encode())
 fd.close()
-'''
+
 # create CMakeLists.txt
 fd = open("project/CMakeLists.txt","w")
 os.write(fd.fileno(),"cmake_minimum_required(VERSION 3.10)\n\
 project(helloworld)\n \
 add_executable(helloworld src/main.cpp)".encode())
-fd.close()'''
+fd.close()
 
 #Build
 # os.chdir("prject/src")
@@ -184,3 +184,44 @@ print("Done")
 
 #csv
 import csv
+
+import openpyxl.reader
+import openpyxl.workbook
+
+data = {
+    "Name" : "Abdalla",
+    "Age" : "22",
+    "Email" : "abdallanasr280#gmail.com"
+}
+
+reader = csv.reader(open("data.csv", "r"))
+for row in reader:
+    print(row)
+
+#openpyxl
+import openpyxl
+
+workbook = openpyxl.Workbook()
+data = {
+    "Name" : "Abdalla",
+    "Age" : "22",
+    "Email" : "abdallanasr280#gmail.com"
+}
+
+for row in data:
+    workbook.active.append(row)
+workbook.save('Examble.xlsx')
+workbook.close()'''
+
+#Try / Eexcept
+x = (int)(input("Enter x vaue : "))
+y = (int)(input("Enter y vaue : "))
+
+try:
+    print(x/y)
+except ZeroDivisionError:
+    print("Zero Division")
+else:
+    print("Not Zero Result")
+finally:
+    print("End Of Code")
