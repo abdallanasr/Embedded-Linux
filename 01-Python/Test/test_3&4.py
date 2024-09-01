@@ -166,7 +166,7 @@ os.system("touch project/CMakeLists.txt")
 fd = open("project/src/main.cpp", "w")
 os.write(fd.fileno(),"#include <iostream>\n\
 int main(){\n \
-std::cout<<\"Hello, World \" << std::endl;\nreturn 0;}".encode())
+std::cout<<\"Hello, World \" << std::endl;\nreturn 0;} ".encode())
 fd.close()
 
 # create CMakeLists.txt
@@ -214,6 +214,7 @@ workbook.save('Examble.xlsx')
 workbook.close()'''
 
 #Try / Eexcept
+# https://docs.python.org/2/library/exceptions.html#exception-hierarchy --> types of errors
 x = (int)(input("Enter x vaue : "))
 y = (int)(input("Enter y vaue : "))
 
