@@ -43,7 +43,7 @@ def Respond(voice_data):
         alexa.speak("صباح الخير " + name)
     elif search_words_in_string(["كود", "الكود", "في اس"], voice_data):
         print("done")
-        webbrowser.open("https://www.youtube.com/", new=2)
+        webbrowser.open("https://www.youtube.com/", new=2) 
 
 
 alexa = voice_assistant()
