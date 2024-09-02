@@ -12,7 +12,7 @@ class voice_assistant:
             self.recognizer.adjust_for_ambient_noise(source)
             audio = self.recognizer.listen(source)
         return audio
-    
+
     def recognize_speech(self, audio):
         try:
             text = self.recognizer.recognize_google(audio, language="ar-EG")
@@ -23,7 +23,7 @@ class voice_assistant:
         except sr.RequestError:
             print("Sorry, there was an error processing your request.")
         return " "
-    
+
     def speak(self, audios):
         tts = gTTS(text=audios, lang='ar', slow=False)
         audioF = 'audio.mp3'
@@ -39,14 +39,16 @@ def search_words_in_string(word_list, text):
 def Respond(voice_data):
     global alexa
     if search_words_in_string(["اسمي", "اسم", "الاسم"], voice_data):
-        name = str(input())
-        alexa.speak("صباح الخير " + name)
+        alexa.speak(" مساء الخير صهيب احمد ")
     elif search_words_in_string(["كود", "الكود", "في اس"], voice_data):
         print("done")
         webbrowser.open("https://www.youtube.com/", new=2) 
 
 
 alexa = voice_assistant()
+
+alexa.speak("مساء الخير ")
+
 while True:
     audio = alexa.record_audio()
     voice_data = alexa.recognize_speech(audio)
