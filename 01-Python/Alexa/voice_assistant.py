@@ -3,8 +3,7 @@ import speech_recognition as sr
 import os
 from gtts import gTTS
 import webbrowser
-from voice_assistant import voice_assistant
-'''
+
 class voice_assistant:
     recognizer = sr.Recognizer()
     def record_audio(self):
@@ -33,25 +32,13 @@ class voice_assistant:
         print(audios)
         os.remove(audioF)
 
-def search_words_in_string(word_list, text):
-    found_words = [word for word in word_list if word in text]
-    return len(found_words) != 0
+    def search_words_in_string(self,word_list, text):
+        found_words = [word for word in word_list if word in text]
+        return len(found_words) != 0
 
-def Respond(voice_data):
-    global alexa
-    if search_words_in_string(["اسمي", "اسم", "الاسم"], voice_data):
-        alexa.speak(" مساء الخير عبدالله")
-    elif search_words_in_string(["كود", "الكود", "في اس"], voice_data):
-        print("done")
-        webbrowser.open("https://www.youtube.com/", new=2) '''
-
-
-alexa = voice_assistant()
-
-alexa.speak("مساء الخير ")
-
-while True:
-    audio = alexa.record_audio()
-    voice_data = alexa.recognize_speech(audio)
-    print(voice_data.lower())
-    alexa.Respond(voice_data)
+    def Respond(self,voice_data):
+        if self.search_words_in_string(["اسمي", "اسم", "الاسم"], voice_data):
+            self.speak(" صباح الخير عبدالله")
+        elif self.search_words_in_string(["كود", "الكود", "في اس"], voice_data):
+            print("done")
+            webbrowser.open("https://www.youtube.com/", new=2) 
