@@ -2,7 +2,7 @@
 
 
 int main(){
-    int x = 10, y = 20, z = 14;
+    int x, y, z;
     std::cout << "Enter X, Y and Z" << std::endl;
     std::cin >> x >> y >> z;
     if (x > y)
